@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ej 9: Cat Walk</title>
+  </head>
+  <body>
+    <img
+      id="myCat"
+      style="position: absolute; left: 0px"
+      src="http://www.anniemation.com/clip_art/images/cat-walk.gif"
+    />
+    <script>
+      var img = document.getElementById('myCat');
+      img.style.left = '0px';
+      var walkForward = true; 
+
+      function catWalk() {
+        var position = parseInt(img.style.left);
+
+        if (walkForward) {
+          img.style.left = position + 10 + 'px';
+          if (position > window.innerWidth - img.width) {
+            walkForward = false;
+          }
+        } else {
+          img.style.left = position - 10 + 'px';
+          if (position <= 0) {
+            walkForward = true;
+          }
+        }
+      }
+      setInterval(catWalk, 50);
+    </script>
+  </body>
+  <div class="mt-4 ms-4">
+    <a href="../index.html" class="btn btn-secondary">
+      <span class="me-2">&#8592;</span> Back
+    </a>
+  </div>
+</html>
